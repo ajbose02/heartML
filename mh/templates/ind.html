@@ -1,0 +1,326 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0">
+    <title>
+        HeartML
+    </title>
+ 
+    <style>
+ 
+        /* Styling the Body element i.e. Color,
+        Font, Alignment */
+        body {
+            background-color: #fff;
+            background-color: #da7c7f;
+            font-family: Verdana;
+            text-align: center;
+        }
+ 
+        /* Styling the Form (Color, Padding, Shadow) */
+        form {
+            background-color: #fff;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px 20px;
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+ 
+        /* Styling form-control Class */
+        .form-control {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+ 
+        /* Styling form-control Label */
+        .form-control label {
+            display: block;
+            margin-bottom: 10px;
+        }
+ 
+        /* Styling form-control input,
+        select, textarea */
+        .form-control input,
+        .form-control select,
+        .form-control textarea {
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            padding: 10px;
+            display: block;
+            width: 95%;
+        }
+        /* Styling Button */
+        button {
+            background-color: #ffcdce;
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 21px;
+            display: block;
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+  
+<body>
+    <h1>HeartML</h1>
+    <h3>Health Survey</h3>
+  
+    <!-- Create Form -->
+    <form id="form">
+ 
+        <!-- Details -->
+        <div class="form-control">
+            <label for="gender" id="label-role">
+                What is your gender? 
+            </label>
+            
+             
+            <!-- Dropdown options -->
+            <select name="gender" id="gender">
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <label for="bmi" id="label-name">
+                Enter your BMI (Body Mass Index)
+            </label>
+ 
+            <!-- Input Type Text -->
+            <input name="bmi" type="number" step="any" required
+                   id="bmi"
+                   placeholder="Enter BMI" />
+        </div>
+  
+        <div class="form-control">
+            <label for="smoking" id="label-role">
+                Do you have a history with smoking? 
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="smoking" id="smoking">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+  
+        <div class="form-control">
+            <label for="alcohol" id="label-role">
+                Do you have a history with alcohol? 
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="alcohol" id="alcohol">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <label for="stroke" id="label-role">
+                Have you experienced a stroke in the past? 
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="stroke" id="stroke">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <label for="phealth" id="label-name">
+                Scale your physical health from 0.0 (worst) to 30.0 (best)
+            </label>
+ 
+            <!-- Input Type Text -->
+            <input name="phealth" type="number" step="any" required
+                   id="phealth"
+                   placeholder="Physical Health" />
+        </div>
+
+        <div class="form-control">
+            <label for="mhealth" id="label-name">
+                Scale your mental health from 0.0 (worst) to 30.0 (best)
+            </label>
+ 
+            <!-- Input Type Text -->
+            <input name="mhealth" type="number" step="any" required
+                   id="mhealth"
+                   placeholder="Mental Health" />
+        </div>
+
+        <div class="form-control">
+            <label for="diffwalking" id="label-role">
+                Do you experience difficulty walking? 
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="diffwalking" id="diffwalking">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <label for="age" id="label-role">
+                Age: 
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="age" id="age">
+                <option value="0">18-24</option>
+                <option value="1">25-29</option>
+                <option value="2">30-34</option>
+                <option value="3">35-39</option>
+                <option value="4">40-44</option>
+                <option value="5">45-49</option>
+                <option value="6">50-54</option>
+                <option value="7">55-59</option>
+                <option value="8">60-64</option>
+                <option value="9">64-69</option>
+                <option value="10">70-74</option>
+                <option value="11">75-79</option>
+                <option value="12">80 or older</option>
+            </select>
+        </div>
+  
+        <div class="form-control">
+            <label for="race" id="label-role">
+                Which option best describes your race?
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="race" id="race">
+                <option value="0">White</option>
+                <option value="1">Black</option>
+                <option value="2">Hispanic</option>
+                <option value="3">American Indian/Alaskan Native</option>
+                <option value="4">Asian</option>
+                <option value="5">Other</option>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <label for="diabetes" id="label-role">
+                Do you have diabetes? 
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="diabetes" id="diabetes">
+                <option value="3">Yes</option>
+                <option value="2">Yes (during pregnancy)</option>
+                <option value="1">No, borderline</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <label for="pact" id="label-role">
+                Are you physically active? 
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="pact" id="pact">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <label for="ghealth" id="label-role">
+                Which option best describes your general health? 
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="ghealth" id="ghealth">
+                <option value="0">Poor</option>
+                <option value="1">Fair</option>
+                <option value="2">Good</option>
+                <option value="3">Very Good</option>
+                <option value="4">Excellent</option>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <label for="sleep" id="label-name">
+                On average, how many hours do you sleep per day? 
+            </label>
+ 
+            <!-- Input Type Text -->
+            <input name="sleep" type="number" step="any" required
+                   id="sleep"
+                   placeholder="Sleep" />
+        </div>
+
+        <div class="form-control">
+            <label for="asthma" id="label-role">
+                Do you have a history with asthma? 
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="asthma" id="asthma">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <label for="kidney" id="label-role">
+                Do you have kidney disease? 
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="kidney" id="kidney">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <label for="skin" id="label-role">
+                Do you have skin cancer? 
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="skin" id="skin">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+        <button name="submit" id = "btn" onclick="redirect()">Submit</button>
+        <script>
+        function redirect(){
+
+            var data = [document.getElementById("gender").value, document.getElementById("bmi").value, document.getElementById("smoking").value, document.getElementById("alcohol").value, document.getElementById("stroke").value, document.getElementById("phealth").value, document.getElementById("mhealth").value, document.getElementById("diffwalking").value, document.getElementById("age").value, document.getElementById("race").value, document.getElementById("diabetes").value, document.getElementById("pact").value, document.getElementById("ghealth").value, document.getElementById("sleep").value, document.getElementById("asthma").value, document.getElementById("kidney").value, document.getElementById("skin").value];
+
+            const x = true;
+
+            for(let i = 0; i < data.length; i++) {
+                if(data[i].length == 0) {
+                    alert("Please fill out all fields");
+                    x = false;
+                }
+            }
+            
+            if(x) {
+                var url = "/prediction/"+data[0]+"/"+data[1]+"/"+data[2]+"/"+data[3]+"/"+data[4]+"/"+data[5]+"/"+data[6]+"/"+data[7]+"/"+data[8]+"/"+data[9]+"/"+data[10]+"/"+data[11]+"/"+data[12]+"/"+data[13]+"/"+data[14]+"/"+data[15]+"/"+data[16]+"/";
+
+                window.open(url)
+            }
+        }
+        </script>
+    </form>
+</body>
+  
+</html>
