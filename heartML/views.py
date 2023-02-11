@@ -4,18 +4,32 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from django.shortcuts import render, get_object_or_404
+from .models import Person
+
+from django.contrib.auth.decorators import login_required
 
 def index(request):
+    return render(request, 'Home.html') 
+
+@login_required
+def survey(request): 
     return render(request, 'ind.html')
+
 
 def about(request): 
     return render(request, 'About.html')
 
+# #create another view function for prediction without data in args
+# @login_required
+# def prediction(request) {
+
+# }
+
+@login_required
 def prediction(request, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q):
     new_input = [[a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q]]
     data_path = 'heart_2020_cleaned.csv'
     healthData = pd.read_csv(data_path) 
-
     #healthData.drop('HeartDisease')
     healthData['AgeCategory'] = healthData['AgeCategory'].replace({'18-24':0,'25-29':1,'30-34':2,'35-39':3,'40-44':4,'45-49':5,'50-54':6,'55-59':7,'60-64':8,'65-69':9,'70-74':10,'75-79':11,'80 or older':12})
     healthData['Race'] = healthData['Race'].replace({'White':0, 'Black':1, 'Hispanic':2,'American Indian/Alaskan Native':3,'Asian':4,'Other':5})
@@ -41,6 +55,8 @@ def prediction(request, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q):
     result = ""
     subtext = ""
     new_output = model.predict(new_input)
+    person = Person(new_input)
+    print(person.getArray())
     print(new_output)
     # summarize input and output
     if(new_output == 1):

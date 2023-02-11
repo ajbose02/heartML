@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+
+{% block header %}
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Hello, world!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </p>
+  </div>
+
+  {% load static %}
+<style type="text/css">
+
+  body {
+      background-image: url("{% static 'background-image-lol.jpg' %}");
+      background-repeat: no-repeat, repeat;
+      background-position: center;
+      background-size: cover;
+  }
+
+  .jumbotron {
+      /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx9H9huGl2aFNUu_dKm6GqiONwQ_ujiIW2rw&usqp=CAU'); */
+      background-repeat: no-repeat, repeat;
+      background-position: center;
+      background-size: cover; 
+      font-weight: bold;
+      box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  }
+
+</style> 
+  
+</div>
+{% endblock header %}
+
+{% block content %}
+  <h2>
+    <a href="{% url 'users:register' %}">Register an account</a> to determine your risk for heart disease, and improve your health one day at a time. 
+  </h2>
+  <h2>
+    Track your habits every day and view your progress by logging entries. 
+  </h2>
+{% endblock content %}
+
+

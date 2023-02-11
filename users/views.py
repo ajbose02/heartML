@@ -10,7 +10,7 @@ from django.contrib.auth.forms import UserCreationForm
 def logout_view(request):
     """Log the user out"""
     logout(request)
-    return HttpResponseRedirect(reverse('learning_logs:index'))
+    return HttpResponseRedirect(reverse('heartML:index'))
 
 def register(request):
     """Register a new user"""
@@ -26,7 +26,8 @@ def register(request):
             #Log the user in and then redirect to home page
             authenticated_user = authenticate(username=new_user.username, password=request.POST['password1'])
             login(request, authenticated_user)
-            return HttpResponseRedirect(reverse('learning_logs:index'))
+            return HttpResponseRedirect(reverse('heartML:survey'))
+            
 
     context = {'form': form}
     return render(request, 'users/register.html', context)

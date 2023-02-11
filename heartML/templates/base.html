@@ -1,4 +1,5 @@
 {% load bootstrap3 %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,13 +26,14 @@
             data-toggle="collapse" data-target="#navbar"
             aria-expanded="false" aria-controls="navbar">
           </button>
-          <a class="navbar-brand" href="{% url 'index' %}">HeartML</a>
+          <!-- <a class="navbar-brand" href="{% url 'heartML:index' %}">HeartML</a> -->
         </div>
 
   
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'index' %}">Index</a></li>
+            <li><img src="{% static 'images/logo-transparent-png.png' %}" height="65px" width="65px"></li>
+            <li><a href="{% url 'heartML:index' %}">Index</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -39,8 +41,8 @@
               <li><a>Hello, {{ user.username }}.</a></li>
               <li><a href="{% url 'users:logout' %}">log out</a></li>
             {% else %}
-              <li><a href="{% url 'users:register' %}">register</a></li>
-              <li><a href="{% url 'users:login' %}">log in</a></li>
+              <li><a href="{% url 'users:login' %}">Login</a></li>
+              <li><a href="{% url 'users:register' %}">Register</a></li>
             {% endif %}
           </ul>
         </div><!--/.nav-collapse-->
@@ -48,17 +50,45 @@
       </div>
     </nav>
 
-    <!--
     <div class="container">
 
       <div class="page-header">
-        {% block header %}{% endblock header %}
+        {% block header %}{% endblock header %} <!--NOTICE THAT THIS IS FOR THE JUMBOTRON-->
       </div>
       <div>
-        {% block content %}{% endblock content %}
+        {% block content %}{% endblock content %} <!--NOTICE THAT THIS IS FOR THE CONTENT-->
       </div>
 
-    </div> container -->
+    </div>
 
   </body>
 </html>
+
+<style>
+   .navbar {
+  min-height: 80px;
+}
+
+.navbar-brand {
+  padding: 0 15px;
+  height: 80px;
+  line-height: 80px;
+}
+
+.navbar-toggle {
+  /* (80px - button height 34px) / 2 = 23px */
+  margin-top: 23px;
+  padding: 9px 10px !important;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    /* (80px - line-height of 27px) / 2 = 26.5px */
+    padding-top: 25px;
+    padding-bottom: 25px;
+    line-height: 30px;
+  }
+}
+</style> 
+
+
