@@ -2,11 +2,14 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html style="font-size: 16px;" lang="en">
   <head>
     <meta charset="utf-8"
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
 
     <title>HeartML</title>
 
@@ -26,20 +29,23 @@
             data-toggle="collapse" data-target="#navbar"
             aria-expanded="false" aria-controls="navbar">
           </button>
-          <!-- <a class="navbar-brand" href="{% url 'heartML:index' %}">HeartML</a> -->
         </div>
 
   
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><img src="{% static 'images/logo-transparent-png.png' %}" height="65px" width="65px"></li>
-            <li><a href="{% url 'heartML:index' %}">Index</a></li>
+            <li><a href="{% url 'heartML:index' %}">Home</a></li>
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'heartML:pred' %}">Prediction</a></li>
+              <li><a href="{% url 'heartML:goals' %}">Personal Goals</a></li>
+            {% endif %}
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
               <li><a>Hello, {{ user.username }}.</a></li>
-              <li><a href="{% url 'users:logout' %}">log out</a></li>
+              <li><a href="{% url 'users:logout' %}">Logout</a></li>
             {% else %}
               <li><a href="{% url 'users:login' %}">Login</a></li>
               <li><a href="{% url 'users:register' %}">Register</a></li>
@@ -55,7 +61,7 @@
       <div class="page-header">
         {% block header %}{% endblock header %} <!--NOTICE THAT THIS IS FOR THE JUMBOTRON-->
       </div>
-      <div>
+      <div class="cont">
         {% block content %}{% endblock content %} <!--NOTICE THAT THIS IS FOR THE CONTENT-->
       </div>
 
@@ -65,9 +71,9 @@
 </html>
 
 <style>
-   .navbar {
+  .navbar {
   min-height: 80px;
-}
+  }
 
 .navbar-brand {
   padding: 0 15px;
@@ -87,6 +93,8 @@
     padding-top: 25px;
     padding-bottom: 25px;
     line-height: 30px;
+    margin-right: 0;
+    margin-left: 0;
   }
 }
 </style> 

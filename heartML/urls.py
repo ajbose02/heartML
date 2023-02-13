@@ -1,4 +1,4 @@
-"""hack URL Configuration
+"""URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('survey', views.survey, name='survey'),
-    path('about/', views.about, name='about'),
     path('prediction/<int:a>/<int:b>/<int:c>/<int:d>/<int:e>/<int:f>/<int:g>/<int:h>/<int:i>/<int:j>/<int:k>/<int:l>/<int:m>/<int:n>/<int:o>/<int:p>/<int:q>/', views.prediction, name="prediction"),
+    path('prediction/', views.pred, name="pred"),
+    path('goals/', views.goals, name="goals"),
     path('users/', include('users.urls')),
 ]

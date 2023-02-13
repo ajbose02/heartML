@@ -3,13 +3,14 @@
 
 {% block header %}
 <div class="container">
-  <div class="jumbotron">
-    <h1 class="display-4">Hello, world!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <div class="jumbotron" style="background-color:#ebaeb1;">
+    <!-- <img class="demo-bg" src="https://www.maycocolors.com/wp-content/uploads/2020/09/ss-141.jpg" alt=""> -->
+    <h1 class="display-4">Do your part, care for your heart.</h1>
+    <p class="lead">HeartML allows you to skip waiting lines to receive a quick diagnosis for heart disease.</p>
     <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <p>With our AI-based prediction model, we use 17 health factors to determine your risk of developing heart disease.</p>
     <p class="lead">
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+      <a class="btn btn-danger btn-lg" href="{% url 'heartML:pred' %}" role="button">Learn more</a>
     </p>
   </div>
 
@@ -17,17 +18,26 @@
 <style type="text/css">
 
   body {
-      background-image: url("{% static 'background-image-lol.jpg' %}");
+      /* background-image: url("{% static 'background-image-lol.jpg' %}"); */
       background-repeat: no-repeat, repeat;
       background-position: center;
       background-size: cover;
   }
 
+  .demo-bg {
+    opacity: 0.23;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+  }
+
   .jumbotron {
-      /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx9H9huGl2aFNUu_dKm6GqiONwQ_ujiIW2rw&usqp=CAU'); */
       background-repeat: no-repeat, repeat;
-      background-position: center;
       background-size: cover; 
+      overflow: hidden;
+      position: relative;
       font-weight: bold;
       box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   }
@@ -39,10 +49,14 @@
 
 {% block content %}
   <h2>
-    <a href="{% url 'users:register' %}">Register an account</a> to determine your risk for heart disease, and improve your health one day at a time. 
+    {% if user.is_authenticated %}
+      <a href="{% url 'heartML:pred' %}" class="text-danger">Determine your risk</a> for heart disease and improve your health one day at a time. 
+    {% else %} 
+     <a href="{% url 'users:register' %}" class="text-danger">Register an account</a> to determine your risk for heart disease and improve your health one day at a time.
+    {% endif %}
   </h2>
   <h2>
-    Track your habits every day and view your progress by logging entries. 
+   Get personalized health goals to decrease your risk for developing heart disease. 
   </h2>
 {% endblock content %}
 

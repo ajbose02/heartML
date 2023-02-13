@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block header %}
-<h2>Register a new account.</h2>
+<h2 class="text-danger">Register a new account.</h2>
 {% endblock header %}
 
 {% block content %}
@@ -13,7 +13,7 @@
     {{ form.as_p }}
 
     {% buttons %}
-    <button name="submit" class="btn btn-primary">register</button>
+    <button name="submit" class="btn btn-danger">register</button>
     {% endbuttons %}
 
     <input type="hidden" name="next" value="{% url 'heartML:survey' %}" />

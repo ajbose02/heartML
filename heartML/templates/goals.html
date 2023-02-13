@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+  <h1>Goals</h1>
+{% endblock header %}
+
+{% block content %}
+
+  <!-- <ul> -->
+    {% for goal in goals %}
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3>
+            {{ goal.text }}
+          </h3>
+        </div>
+
+        <div class="panel-body">
+          <h4>
+          {{ goal.description|linebreaks }}
+          </h4>
+        </div>
+      
+      </div>
+    {% empty %}
+      <h4>
+        Your data indicates that you have good health. Keep it up!
+      </h4>
+    {% endfor %}
+  <!-- </ul> -->
+
+{% endblock content %}
